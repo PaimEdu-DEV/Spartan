@@ -1,0 +1,14 @@
+import { StrictMode } from 'react'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import './index.css'
+import App from './App'
+
+const root = document.getElementById('root')!
+const app = (
+  <StrictMode>
+    <App />
+  </StrictMode>
+)
+// No build o HTML já vem pronto (pré-renderizado); no `npm run dev` a página é montada do zero
+if (root.firstElementChild) hydrateRoot(root, app)
+else createRoot(root).render(app)
